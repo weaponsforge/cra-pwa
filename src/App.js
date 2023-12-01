@@ -1,8 +1,14 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
-function App() {
+import PublicRoute from './components/PublicRoute'
+import Navigation from './components/Navigation'
+import logo from './logo.svg'
+import './App.css'
+
+import routes from './routes'
+
+function App(props) {
   return (
     <div className="App">
       <header className="App-header">
@@ -18,6 +24,19 @@ function App() {
         >
           Learn React
         </a>
+        <br />
+
+        <Router>
+          <Navigation />
+
+          <Routes>
+            {routes.map(({ path, isProtected, component: Component }, index) => {
+              const FinalRoute = <PublicRoute idx={index} Component={Component} path={path} {...props} />
+              return <Route key={index} path={path} element={FinalRoute} />
+            }
+            )}
+          </Routes>
+        </Router>
       </header>
     </div>
   );
