@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "default": "apptests-1d9c8"
+  },
+  "targets": {
+    "apptests-1d9c8": {
+      "hosting": {
+        "pwa": [
+          "gmb-pwa-test"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}
